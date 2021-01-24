@@ -1,0 +1,13 @@
+---
+- hosts: 10.130.140.74
+  user: appuser01
+  tasks:
+  - name: Replace a Line with other string
+    lineinfile:
+		  path: /home/appuser01/sicepat_api/.env
+		  # The String to Search 
+		  regexp: "NODE_ENV=development"
+		  # The String to Replace
+		  line: "NODE_ENV=production"		 
+		  state: present
+		  backup: yes

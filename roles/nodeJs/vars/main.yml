@@ -1,0 +1,6 @@
+---
+packages_to_install:
+  - nodejs
+  - yarn
+  - build-essential
+    

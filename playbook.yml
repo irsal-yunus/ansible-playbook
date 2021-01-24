@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  roles:
+  - nginx
+  - nodejs
+  - java
+  - postgresql
+  - kafka
+  - ssh

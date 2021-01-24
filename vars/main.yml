@@ -1,0 +1,4 @@
+---
+db_user: postgres
+db_name: helpdesk
+db_password: dbpassword123

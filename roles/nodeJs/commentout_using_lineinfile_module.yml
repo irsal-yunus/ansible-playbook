@@ -1,0 +1,16 @@
+---
+- hosts: 10.130.140.74
+  user: appuser01
+  tasks:
+  - name: Commentout a Line
+    lineinfile:
+		  path: /home/appuser01/sicepat_api/.env
+		  # The String to Search for comment
+		  regexp: '(^daemon_directory .*)'
+		  # Commentout the lineinfile
+		  line: '#\1'
+		  backrefs: yes
+		  state: present
+		  backup: yes
+
+          

@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Install Open Ssh
+      apt: name=openssh-server state=latest
+      become: yes
+    - name: start sshd
+      service:
+          name: ssh
+          state: started
+      become: yes
+    - name: copy the ssh config file and restart ssh
+      copy:
+        src: /home/irsal/my_playbook/nginx/config_nginx/static_site.cfg
+        dest: /etc/ssh/
+      become: yes    
+    - name: restart ssh
+      service:
+        name: ssh
+        state: restarted
+      become: yes

@@ -1,0 +1,11 @@
+---
+- hosts: 188.166.214.118
+  user: appuser01
+  tasks:
+  - name: Delete a Line 
+    lineinfile:
+		  path: /home/appuser01/sicepat_api/.env
+		  # The below line will be delete
+		  regexp: "DATABASE_NAME=helpdesk"		  
+		  state: absent
+		  backup: yes

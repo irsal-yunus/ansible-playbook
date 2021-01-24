@@ -1,0 +1,10 @@
+---
+- hosts: 10.130.140.74
+  user: appuser01
+  tasks:
+  - name: Add The line if it does not exist
+	lineinfile:
+		  path: /home/appuser01/sicepat_api/.env
+		  line: "VARIABLE_NAME = VALUE"
+		  state: present
+		  backup: yes

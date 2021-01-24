@@ -1,0 +1,14 @@
+---
+- hosts: 10.130.140.74
+  user: appuser01
+  tasks:
+  - name: Insert a Line just before spesific line
+    lineinfile:
+		  path: /home/appuser01/sicepat_api/.env
+		  # Searching the line 
+		  regexp: '^# JWT_SECRET=somereallylongsecretkey'
+		  insertbefore: '# JWT_SECRET=somereallylongsecretkey .*'
+		  # The line to add
+		  line: "DATABASE_NAME=helpdesk"		  
+		  state: present
+		  backup: yes

@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+- connection: local
+- tasks:
+    - name: download packages kafka
+      become: true
+      get_url:
+        url: https://downloads.apache.org/kafka/2.6.0/kafka_2.13-2.6.0.tgz
+        dest: /usr/local
+    - name: extract packages kafka
+      unarchive:
+        src: /usr/local/kafka_2.13-2.6.0.tgz
+        dest: /usr/local
+        #remote_src: yes # untuk remote ke target tujuan jika instal di local server ansible tidak digunakan
+    - name: start service zookeeper
+      shell: /usr/local/kafka-server/bin/zookeeper-server-start.sh 
+
+
+

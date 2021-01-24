@@ -1,0 +1,26 @@
+---
+- hosts: 188.166.214.118
+  connection: local
+  gather_facts: false
+  vars:
+
+  tasks:
+  - name: load var from file
+    include_vars:
+      file: /tmp/env.development.json
+      name: imported_var
+
+  - debug:
+      var: imported_var
+
+  - name: append more key/values
+    set_fact:
+      imported_var: "{{ imported_var | default([]) | combine({ 'hello': 'world' }) }}"
+
+  - debug:
+      var: imported_var
+
+  - name: write var to file
+    copy: 
+      content: "{{ imported_var | to_nice_json }}" 
+      dest: /var/www/html/development/assets/env/env.development.json
