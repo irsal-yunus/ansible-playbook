@@ -1,0 +1,27 @@
+[webservers]
+188.166.214.118
+
+[dbservers]
+188.166.218.227
+
+[Kafka]
+128.199.98.77
+
+
+
+[group_a]
+server1 ansible_host=188.166.218.227
+
+
+[group_b]
+server2 ansible_host=188.166.218.227
+
+[group_c]
+server2 ansible_host=128.199.98.77
+
+
+[group_a:vars]
+ansible_user=dbuser
+
+[group_b:vars]
+ansible_user=appuser01

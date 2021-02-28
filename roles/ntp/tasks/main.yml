@@ -1,0 +1,12 @@
+---
+- name: Installing NTP tools
+  yum:
+    name:
+      - ntp
+      - ntpdate
+    state: present
+  tags: ntp
+
+- name: Sycnhronizing date and time
+  command: ntpdate time.1rstwap.com
+  tags: ntp

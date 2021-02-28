@@ -1,0 +1,55 @@
+[client]
+default-character-set       = utf8mb4
+port                        = 3306
+socket                      = /tmp/mysql.sock
+
+[isamchk]
+key_buffer                  = 256M
+read_buffer                 = 2M
+sort_buffer_size            = 256M
+write_buffer                = 2M
+
+[myisamchk]
+key_buffer                  = 256M
+read_buffer                 = 2M
+sort_buffer_size            = 256M
+write_buffer                = 2M
+
+[mysql]
+default-character-set       = utf8mb4
+no-auto-rehash
+
+# this is only for the mysqld standalone daemon
+[mysqld]
+character-set-server        = utf8mb4
+collation-server            = utf8mb4_unicode_ci
+datadir                     = /data/db
+expire_logs_days            = 3
+group_concat_max_len        = 1000000
+init-connect                = 'SET NAMES utf8mb4'
+innodb_buffer_pool_size     = 1024M
+innodb_data_file_path       = ibdata1:50M;ibdata2:50M:autoextend
+innodb_data_home_dir        = /data/db-innodb/
+innodb_file_per_table
+innodb_lock_wait_timeout    = 400
+innodb_log_buffer_size      = 8M
+innodb_log_file_size        = 100M
+innodb_log_group_home_dir   = /data/db-innodb/
+innodb_thread_concurrency   = 1000
+log-error                   = {{ ansible_hostname }}.err
+long_query_time             = 10
+max_connect_errors          = 10
+max_connections             = 10000
+port                        = 3306
+socket                      = /tmp/mysql.sock
+slow-query-log              = 1
+slow_query_log_file         = /data/db/{{ ansible_hostname }}.slow
+tmp_table_size              = 64M
+tmpdir                      = /data/tmp
+
+[mysqldump]
+max_allowed_packet          = 16M
+quick
+
+[mysqlhotcopy]
+interactive-timeout

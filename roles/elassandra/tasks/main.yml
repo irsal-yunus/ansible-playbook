@@ -1,0 +1,14 @@
+---
+- name: Adding Elassandra repository
+  yum_repository:
+    name: elassandra
+    description: Elassandra YUM repository
+    baseurl: "https://nexus.repo.strapdata.com/repository/rpm-releases/"
+    gpgcheck: no
+  tags: elassandra
+
+- name: Installing Elassandra
+  yum:
+    name: elassandra
+    state: present
+  tags: elassandra

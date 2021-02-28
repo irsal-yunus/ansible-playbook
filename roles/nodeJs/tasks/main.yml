@@ -1,0 +1,14 @@
+---
+- name: Installing NVM
+  become_user: firstwap
+  shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+  args:
+    creates: /home/firstwap/.nvm/nvm.sh
+  tags: nodejs
+
+- name: Installing Node.js LTS
+  become_user: firstwap
+  shell: >
+    /bin/bash -c "source /home/firstwap/.nvm/nvm.sh && nvm install --lts"
+  tags: nodejs

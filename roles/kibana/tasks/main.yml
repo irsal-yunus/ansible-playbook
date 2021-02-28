@@ -1,0 +1,15 @@
+---
+- name: Adding Kibana repository
+  yum_repository:
+    name: kibana
+    description: Kibana 6 YUM repository
+    baseurl: "https://artifacts.elastic.co/packages/6.x/yum"
+    gpgkey: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+    gpgcheck: yes
+  tags: kibana
+
+- name: Installing Kibana
+  yum:
+    name: kibana
+    state: present
+  tags: kibana

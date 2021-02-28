@@ -1,0 +1,13 @@
+---
+- name: Installing Apache HTTP service
+  yum:
+    name: httpd
+    state: present
+  tags: httpd
+
+- name: Starting and enabling Apache HTTP service
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+  tags: httpd

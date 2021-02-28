@@ -1,0 +1,19 @@
+---
+- name: Installing chrony
+  yum:
+    name: chrony
+    state: present
+  tags: chrony
+
+- name: Copying chrony configuration file
+  copy:
+    src: "{{ role_path }}/files/etc/chrony.conf"
+    dest: /etc/chrony.conf
+  tags: chrony
+
+- name: Starting and enabling chronyd service
+  service:
+    name: chronyd
+    state: started
+    enabled: yes
+  tags: chrony

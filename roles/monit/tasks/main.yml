@@ -1,0 +1,6 @@
+---
+- name: Installing Monit
+  yum:
+    name: monit
+    state: present
+  tags: monit

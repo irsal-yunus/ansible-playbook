@@ -9,3 +9,10 @@
   - postgresql
   - kafka
   - ssh
+  - common
+  - chrony
+  - ntp
+  - git
+  - ansible  
+  - logstash  
+  - jenkins

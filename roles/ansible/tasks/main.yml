@@ -1,0 +1,6 @@
+---
+- name: Installing Ansible
+  yum:
+    name: ansible
+    state: present
+  tags: ansible
